@@ -2,8 +2,11 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="default-card">
+<div class="centered-card">
     <h1>Nie ma tutaj nic</h1>
-    <p>Wróć do Twojej Roli, aby znaleźć interesujące informacje.</p>
-    <a href="#">Wróć do Twojej Roli</a>
+    @if (Context.Request.Cookies.TryGetValue("Role", out string? role))
+    {
+        <p>Chcesz zobaczyć swoją supermoc znowu?</p>
+        <a href="Roles/@role">➡️ Kliknij mnie, aby zobaczyć swoją supermoc ⬅️</a>
+    }
 </div>
